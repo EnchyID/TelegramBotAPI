@@ -18,6 +18,8 @@ public function onEnable(): void{
 
 # Example getMessageText
 ```php
+private $bot;
+
 public function onEnable(): void{
     $this->getServer()->getPluginManager()->registerEvents($this, $this);
     $this->bot = new TelegramBot("YOU_BOT_TOKEN");
@@ -27,6 +29,8 @@ public function onEnable(): void{
 
 # Example sendMessage & getChatId
 ```php
+private $bot;
+
 public function onEnable(): void{
     $this->getServer()->getPluginManager()->registerEvents($this, $this);
     $this->bot = new TelegramBot("YOU_BOT_TOKEN");
