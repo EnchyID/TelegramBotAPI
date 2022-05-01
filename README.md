@@ -14,7 +14,7 @@ private $bot;
 
 public function onEnable(): void{
     $this->getServer()->getPluginManager()->registerEvents($this, $this);
-    $this->bot = new TelegramBot("YOU_BOT_TOKEN");
+    $this->bot = new TelegramBot("YOUR_BOT_TOKEN");
 }
 ```
 
@@ -24,7 +24,7 @@ private $bot;
 
 public function onEnable(): void{
     $this->getServer()->getPluginManager()->registerEvents($this, $this);
-    $this->bot = new TelegramBot("YOU_BOT_TOKEN");
+    $this->bot = new TelegramBot("YOUR_BOT_TOKEN");
     $this->bot->getMessageText();
 }
 ```
@@ -35,7 +35,7 @@ private $bot;
 
 public function onEnable(): void{
     $this->getServer()->getPluginManager()->registerEvents($this, $this);
-    $this->bot = new TelegramBot("YOU_BOT_TOKEN");
+    $this->bot = new TelegramBot("YOUR_BOT_TOKEN");
     $this->bot->sendMessage($this->bot->getChatId(), "Hello there!");
 }
 ```
@@ -46,7 +46,7 @@ private $bot;
 
 public function onEnable(): void{
     $this->getServer()->getPluginManager()->registerEvents($this, $this);
-    $this->bot = new TelegramBot("YOU_BOT_TOKEN");
+    $this->bot = new TelegramBot("YOUR_BOT_TOKEN");
     $this->bot->sendMessage($this->bot->getChatId(), "Are you human?", "markdown", [
         "inline_keyboard" => [
             [["text" => "Yes", "callback_data" => "Yes"], ["text" => "No", "callback_data" => "No"]]
@@ -61,7 +61,7 @@ private $bot;
 
 public function onEnable(): void{
     $this->getServer()->getPluginManager()->registerEvents($this, $this);
-    $this->bot = new TelegramBot("YOU_BOT_TOKEN");
+    $this->bot = new TelegramBot("YOUR_BOT_TOKEN");
     $this->bot->sendMessage($this->bot->getChatId(), "Select a button:", "markdown", [
         "keyboard" => [
             [["text" => "Button 1"]],
