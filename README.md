@@ -17,7 +17,7 @@ use io\enn3\telegrambot\TelegramBot;
 | chat_id | string/integer | [chatId](https://github.com/FrogasQ/TelegramBotAPI#getchatid) |
 | text | string | Messages |
 | parse_mode | string | markdown/HTML |
-| reply_markup | array | [markup](https://github.com/FrogasQ/TelegramBotAPI#markup |
+| reply_markup | array | [markup](https://github.com/FrogasQ/TelegramBotAPI#markup) |
 
 # CreateBot
 ```php
