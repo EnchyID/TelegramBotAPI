@@ -6,6 +6,7 @@ Get your bot Token [@BotFather.](https://t.me/BotFather)
 # Import Class
 ```php
 use io\enn3\telegrambot\TelegramBot;
+```
 
 # TelegramBot
 | string | BOT_TOKEN |
