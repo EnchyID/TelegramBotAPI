@@ -2,38 +2,70 @@
 
 namespace io\enn3\telegrambot;
 
-use pocketmine\plugin\PluginBase;
-use pocketmine\event\Listener;
+use pocketmine\scheduler\TaskScheduler;
 use io\enn3\telegrambot\task\CurlUpdateTask;
 
-class TelegramBot extends PluginBase implements Listener {
+class TelegramBot {
 
     private $url;
+    private $curl_obj;
+    private $params;
+    private $method;
+    private $type;
 
-    public function onEnable(): void{
-        $this->getServer()->getPluginManager()->registerEvents($this, $this);
-        $this->getServer()->getLogger()->info("TelegramBot api for TelegramBot.");
+    public function __construct(string $token){
+        $this->url = "https://api.telegram.org/bot" . $token;
+        if(!function_exists("curl_init")){
+            exit();
+        }
+        $this->init();
+        $this->launch();
     }
     
-    public function createBot($token){
-        $this->url = "https://api.telegram.org/bot" . $token;
-        $this->getMe();
+    public function init(){
+        $this->curl_obj = curl_init();
+    }
+    
+    public function request($url, $method = "GET", $params = array(), $opts = array()){
+        $method = trim(strtoupper($method));
+        $opts[CURLOPT_FOLLOWLOCATION] = true;
+        $opts[CURLOPT_RETURNTRANSFER] = 1;
+        if($method === "GET"){
+            $url .= "?" . serialize($params);
+            $params = http_build_query($params);
+        }else if($method === "POST"){
+            $opts[CURLOPT_POST] = 1;
+            $opts[CURLOPT_POSTFIELDS] = $params;
+        }
+        $opts[CURLOPT_URL] = $url;
+        curl_setopt_array($this->curl_obj, $opts);
+        $content = curl_exec($this->curl_obj);
+        return $content;
     }
     
     public function getMe(){
-        $curl = new Curl();
-        $result = $curl->request($this->url . "/getMe", "GET", array());
-        $data = json_decode($result, true);
-        return $data;
+        $this->method = "/getMe";
+        $this->type = "GET";
+        $this->params = array();
+        if(!isset($this->getUpdates()["result"])){
+        	return "Error to getHttps";
+        }
+        $result = $this->request($this->url . "/getMe", "GET", array());
+        if($data) print_r($data);
+        else echo $result;
     }
     
     public function getUpdates(): array{
-        $curl = new Curl();
-        $result = $curl->request($this->url . "/getUpdates", "GET", array());
-        $data = json_decode($result, true);
-        if($data == null){
-            return array();
+        $this->method = "/getUpdates";
+        $this->type = "GET";
+        $this->params = array();
+        if(!isset($this->getUpdates()["result"])){
+        	return "Error to getHttps";
         }
+        $result = $this->request($this->url . "/getUpdates", "GET", array());
+        $data = json_decode($result, true);
+        if($data) print_r($data);
+        else echo $result;
         return $data;
     }
     
@@ -49,20 +81,25 @@ class TelegramBot extends PluginBase implements Listener {
         return $this->getUpdates()["result"][count($this->getUpdates()["result"]) - 1]["message"]["message_id"];
     }
     
-    public function sendMessage(string $chatId, string $text){
-        $data = array(
+    public function sendMessage(string $chatId, string $text){ 
+        $this->method = "/sendMessage";
+        $this->type = "POST";
+        $this->params = array(
             "chat_id" => $chatId,
             "text" => $text
         );
-        $curl = new Curl();
-        $result = $curl->request($this->url . "/sendMessage", "POST", $data);
+        $result = $this->request($this->url . "/sendMessage", "POST", array(
+            "chat_id" => $chatId,
+            "text" => $text
+        ));
         $data = json_decode($result, true);
         if($data) print_r($data);
         else echo $result;
     }
     
-    public function launch(){   
-        $this->getScheduler()->scheduleRepeatingTask(new CurlUpdateTask($this), 3 * 10);
+    public function launch(){ 
+        $sc = new TaskScheduler();
+        $sc->scheduleRepeatingTask(new CurlUpdateTask($this, $this->url, $this->type, $this->method, $this->params), 3 * 10);
     }
     
     public function close(){
