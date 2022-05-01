@@ -59,25 +59,34 @@ class TelegramBot {
         $this->method = "/getUpdates";
         $this->type = "GET";
         $this->params = array();
-        if(!isset($this->getUpdates()["result"])){
-        	return "Error to getHttps";
-        }
         $result = $this->request($this->url . "/getUpdates", "GET", array());
         $data = json_decode($result, true);
         if($data) print_r($data);
         else echo $result;
+        if($data == null){
+        	return array();
+        }
         return $data;
     }
     
     public function getChatId(){
+    	if($this->getUpdates() == array()){
+    	    return "Error to getHttps";
+    	}
         return $this->getUpdates()["result"][count($this->getUpdates()["result"]) - 1]["message"]["chat"]["id"];
     }
     
     public function getMessageText(){
+    	if($this->getUpdates() == array()){
+    	    return "Error to getHttps";
+    	}
         return $this->getUpdates()["result"][count($this->getUpdates()["result"]) - 1]["message"]["text"];
     }
     
     public function getMessageId(){
+    	if($this->getUpdates() == array()){
+    	    return "Error to getHttps";
+    	}
         return $this->getUpdates()["result"][count($this->getUpdates()["result"]) - 1]["message"]["message_id"];
     }
     
