@@ -26,7 +26,7 @@ public function onEnable(): void{
 | variable | type | call |
 |:------:|:------:|:------:|
 | chat_id | string/integer | [chatId](https://github.com/FrogasQ/TelegramBotAPI#getchatid) |
-| text | string | Messages |
+| text | string | [Message](https://github.com/FrogasQ/TelegramBotAPI#getmessagetext) |
 | parse_mode | string | markdown/HTML |
 | reply_markup | array | [Keyboard](https://github.com/FrogasQ/TelegramBotAPI#keyboard) |
 
