@@ -43,8 +43,8 @@ public function onEnable(): void{
 # Keyboard
 | variable | type | call |
 |:------:|:------:|:------:|
-| inline_keyboard | array | [InlineKeyboard](https://github.com/FrogasQ/TelegramBotAPI#sendmessage-inlinekeyboard) |
-| keyboard | array | [InlineKeyboard](https://github.com/FrogasQ/TelegramBotAPI#sendmessage-keyboardbutton) |
+| inline_keyboard | array | [InlineKeyboard](https://github.com/FrogasQ/TelegramBotAPI#inlinekeyboard) |
+| keyboard | array | [KeyboardButton](https://github.com/FrogasQ/TelegramBotAPI#keyboardbutton) |
 
 # InlineKeyboard
 ```php
