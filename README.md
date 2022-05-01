@@ -45,9 +45,9 @@ private $bot;
 public function onEnable(): void{
     $this->getServer()->getPluginManager()->registerEvents($this, $this);
     $this->bot = new TelegramBot("YOU_BOT_TOKEN");
-    $this->bot->sendMessage($this->bot->getChatId(), "Hello there!", "markdown", [
+    $this->bot->sendMessage($this->bot->getChatId(), "Are you human?", "markdown", [
         "inline_keyboard" => [
-            [["text" => "Test", "callback_data" => "Test"]]
+            [["text" => "Yes", "callback_data" => "Yes"], ["text" => "No", "callback_data" => "No"]]
         ]
     ]);
 }
@@ -60,9 +60,10 @@ private $bot;
 public function onEnable(): void{
     $this->getServer()->getPluginManager()->registerEvents($this, $this);
     $this->bot = new TelegramBot("YOU_BOT_TOKEN");
-    $this->bot->sendMessage($this->bot->getChatId(), "Hello there!", "markdown", [
+    $this->bot->sendMessage($this->bot->getChatId(), "Select a button:", "markdown", [
         "keyboard" => [
-            [["text" => "Test"]]
+            [["text" => "Button 1"]],
+            [["text" => "Button 2"]]
         ],
         "resize_keyboard" => true,
         "one_time_keyboard" => true
