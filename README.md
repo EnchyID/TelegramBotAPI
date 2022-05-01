@@ -79,14 +79,26 @@ public function onEnable(): void{
 }
 ```
 
-# API
+# getMe
 ```php
-sendMessage(string, string, string, array);
-getMe();
-getUpdates();
-getChatId();
-getMessageText();
-getMessageId();
+private $bot;
+
+public function onEnable(): void{
+    $this->getServer()->getPluginManager()->registerEvents($this, $this);
+    $this->bot = new TelegramBot("YOUR_BOT_TOKEN");
+    $this->bot->getMe();
+}
+```
+
+# getMessageId
+```php
+private $bot;
+
+public function onEnable(): void{
+    $this->getServer()->getPluginManager()->registerEvents($this, $this);
+    $this->bot = new TelegramBot("YOUR_BOT_TOKEN");
+    $this->bot->getMessageId();
+}
 ```
 
 # getMessageText
