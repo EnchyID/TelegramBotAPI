@@ -8,7 +8,7 @@ Get your bot Token [@BotFather.](https://t.me/BotFather)
 use io\enn3\telegrambot\TelegramBot;
 ```
 
-# Example createBot & launch
+# CreateBo
 ```php
 private $bot;
 
@@ -28,7 +28,7 @@ getMessageText();
 getMessageId();
 ```
 
-# Example getMessageText
+# getMessageText
 ```php
 private $bot;
 
@@ -39,7 +39,7 @@ public function onEnable(): void{
 }
 ```
 
-# Example sendMessage & getChatId
+# sendMessage & getChatId
 ```php
 private $bot;
 
@@ -50,7 +50,7 @@ public function onEnable(): void{
 }
 ```
 
-# Example sendMessage InlineKeyboard
+# sendMessage InlineKeyboard
 ```php
 private $bot;
 
@@ -65,7 +65,7 @@ public function onEnable(): void{
 }
 ```
 
-# Example sendMessage KeyboardButton
+# sendMessage KeyboardButton
 ```php
 private $bot;
 
