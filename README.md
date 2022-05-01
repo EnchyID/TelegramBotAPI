@@ -12,6 +12,16 @@ use io\enn3\telegrambot\TelegramBot;
 | variable | type |
 |:------:|:------:|
 | BOT_TOKEN | string |
+
+```php
+private $bot;
+
+public function onEnable(): void{
+    $this->getServer()->getPluginManager()->registerEvents($this, $this);
+    $this->bot = new TelegramBot("YOUR_BOT_TOKEN");
+}
+```
+
 # sendMessage
 | variable | type | call |
 |:------:|:------:|:------:|
@@ -35,16 +45,6 @@ public function onEnable(): void{
 |:------:|:------:|:------:|
 | inline_keyboard | array | [InlineKeyboard](https://github.com/FrogasQ/TelegramBotAPI#sendmessage-inlinekeyboard) |
 | keyboard | array | [InlineKeyboard](https://github.com/FrogasQ/TelegramBotAPI#sendmessage-inlinekeyboard) |
-
-# CreateBot
-```php
-private $bot;
-
-public function onEnable(): void{
-    $this->getServer()->getPluginManager()->registerEvents($this, $this);
-    $this->bot = new TelegramBot("YOUR_BOT_TOKEN");
-}
-```
 
 # API
 ```php
@@ -75,17 +75,6 @@ public function onEnable(): void{
     $this->getServer()->getPluginManager()->registerEvents($this, $this);
     $this->bot = new TelegramBot("YOUR_BOT_TOKEN");
     $this->bot->getChatId();
-}
-```
-
-# sendMessage
-```php
-private $bot;
-
-public function onEnable(): void{
-    $this->getServer()->getPluginManager()->registerEvents($this, $this);
-    $this->bot = new TelegramBot("YOUR_BOT_TOKEN");
-    $this->bot->sendMessage($this->bot->getChatId(), "Hello there!");
 }
 ```
 
