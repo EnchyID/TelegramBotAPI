@@ -10,13 +10,14 @@ use io\enn3\telegrambot\TelegramBot;
 
 # TelegramBot
 | string | TokenBot |
-|:------:|:--------:|
+|:------:|:------:|
 # sendMessage
-|        |          |
-|:------:|:--------:|
-| chat_id | [ChatId](https://github.com/FrogasQ/TelegramBotAPI#getchatid)
-| text | Messages |
-| parse_mode | markdown/HTML |
+| variable | type | call |
+|:------:|:------:|:------:|
+| chat_id | string/integer | [chatId](https://github.com/FrogasQ/TelegramBotAPI#getchatid) |
+| text | string | Messages |
+| parse_mode | string | markdown/HTML |
+| reply_markup | array | [markup](https://github.com/FrogasQ/TelegramBotAPI#markup |
 
 # CreateBot
 ```php
