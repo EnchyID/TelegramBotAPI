@@ -9,10 +9,12 @@ use io\enn3\telegrambot\TelegramBot;
 ```
 
 # TelegramBot
-| string | BOT_TOKEN |
-|:------:|:---------:|
+| string | TokenBot |
+|:------:|:--------:|
 # sendMessage
 | string | [ChatId](https://github.com/FrogasQ/TelegramBotAPI#getchatid)
+|:------:|:--------:|
+| string | Messages |
 |:------:|:--------:|
 
 # CreateBot
