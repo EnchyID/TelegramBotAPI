@@ -11,7 +11,7 @@ use io\enn3\telegrambot\TelegramBot;
 # TelegramBot
 | variable | type | call |
 |:------:|:------:|:------:|
-| bot_token | string | [@BotFather.](https://t.me/BotFather) |
+| bot_token | string | [@BotFather](https://t.me/BotFather) |
 
 ```php
 private $bot;
