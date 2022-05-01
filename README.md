@@ -18,7 +18,13 @@ use io\enn3\telegrambot\TelegramBot;
 | chat_id | string/integer | [chatId](https://github.com/FrogasQ/TelegramBotAPI#getchatid) |
 | text | string | Messages |
 | parse_mode | string | markdown/HTML |
-| reply_markup | array | [markup](https://github.com/FrogasQ/TelegramBotAPI#markup) |
+| reply_markup | array | [Keyboard](https://github.com/FrogasQ/TelegramBotAPI#keyboard) |
+
+# Keyboard
+| variable | type | call |
+|:------:|:------:|:------:|
+| inline_keyboard | array | [InlineKeyboard](https://github.com/FrogasQ/TelegramBotAPI#sendmessage-inlinekeyboard) |
+| keyboard | array | [InlineKeyboard](https://github.com/FrogasQ/TelegramBotAPI#sendmessage-inlinekeyboard) |
 
 # CreateBot
 ```php
