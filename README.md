@@ -12,6 +12,7 @@ use io\enn3\telegrambot\TelegramBot;
 | string | TokenBot |
 |:------:|:--------:|
 # sendMessage
+|        |          |
 | string | [ChatId](https://github.com/FrogasQ/TelegramBotAPI#getchatid)
 |:------:|:--------:|
 | string | Messages |
