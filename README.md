@@ -8,7 +8,7 @@ Get your bot Token [@BotFather.](https://t.me/BotFather)
 use io\enn3\telegrambot\TelegramBot;
 ```
 
-# CreateBo
+# CreateBot
 ```php
 private $bot;
 
@@ -39,7 +39,18 @@ public function onEnable(): void{
 }
 ```
 
-# sendMessage & getChatId
+# getChatId
+```php
+private $bot;
+
+public function onEnable(): void{
+    $this->getServer()->getPluginManager()->registerEvents($this, $this);
+    $this->bot = new TelegramBot("YOUR_BOT_TOKEN");
+    $this->bot->getChatId();
+}
+```
+
+# sendMessage
 ```php
 private $bot;
 
