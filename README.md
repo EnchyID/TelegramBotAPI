@@ -25,6 +25,7 @@ getMe();
 getUpdates();
 getChatId();
 getMessageText();
+getMessageId();
 ```
 
 # Example getMessageText
