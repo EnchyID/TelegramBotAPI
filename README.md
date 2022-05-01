@@ -15,7 +15,6 @@ use io\enn3\telegrambot\TelegramBot;
 |        |          |
 |:------:|:--------:|
 | string | [ChatId](https://github.com/FrogasQ/TelegramBotAPI#getchatid)
-|:------:|:--------:|
 | string | Messages |
 
 # CreateBot
