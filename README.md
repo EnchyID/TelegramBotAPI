@@ -38,7 +38,7 @@ public function onEnable(): void{
 }
 ```
 
-# Example sendMessage with Markup
+# Example sendMessage InlineKeyboard
 ```php
 private $bot;
 
@@ -49,6 +49,23 @@ public function onEnable(): void{
         "inline_keyboard" => [
             [["text" => "Test", "callback_data" => "Test"]]
         ]
+    });
+}
+```
+
+# Example sendMessage KeyboardButton
+```php
+private $bot;
+
+public function onEnable(): void{
+    $this->getServer()->getPluginManager()->registerEvents($this, $this);
+    $this->bot = new TelegramBot("YOU_BOT_TOKEN");
+    $this->bot->sendMessage($this->bot->getChatId(), "Hello there!", "markdown", {
+        "keyboard" => [
+            [["text" => "Test"]]
+        ],
+        "resize_keyboard" => true,
+        "one_time_keyboard" => true
     });
 }
 ```
