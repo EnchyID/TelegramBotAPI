@@ -8,11 +8,11 @@ use io\enn3\telegrambot\TelegramBot;
 
 # Example createBot & launch
 ```php
+private $bot;
+
 public function onEnable(): void{
     $this->getServer()->getPluginManager()->registerEvents($this, $this);
-    $bot = $this->getServer()->getPluginManager()->getPlugin("TelegramBot");
-    $bot->createBot("BOT_TOKEN_GET_BOTFATHER");
-    $bot->launch();
+    $this->bot = new TelegramBot("YOU_BOT_TOKEN");
 }
 ```
 
@@ -20,12 +20,8 @@ public function onEnable(): void{
 ```php
 public function onEnable(): void{
     $this->getServer()->getPluginManager()->registerEvents($this, $this);
-    $bot = $this->getServer()->getPluginManager()->getPlugin("TelegramBot");
-    $bot->createBot("BOT_TOKEN_GET_BOTFATHER");
-    $bot->launch();
-    if($bot->getMessageText() == "/start"){
-        return true;
-    }
+    $this->bot = new TelegramBot("YOU_BOT_TOKEN");
+    $this->bot->getMessageText();
 }
 ```
 
@@ -33,12 +29,7 @@ public function onEnable(): void{
 ```php
 public function onEnable(): void{
     $this->getServer()->getPluginManager()->registerEvents($this, $this);
-    $bot = $this->getServer()->getPluginManager()->getPlugin("TelegramBot");
-    $bot->createBot("BOT_TOKEN_GET_BOTFATHER");
-    $bot->launch();
-    if($bot->getMessageText() == "/start"){
-        $bot->sendMessage($bot->getChatId(), "Hello There!");
-        return true;
-    }
+    $this->bot = new TelegramBot("YOU_BOT_TOKEN");
+    $this->bot->sendMessage($this->bot->getChatId(), "Hello there!");
 }
 ```
