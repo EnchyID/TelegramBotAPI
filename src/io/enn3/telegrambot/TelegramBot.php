@@ -68,12 +68,54 @@ class TelegramBot {
         }
         return $data;
     }
-    
+
+    public function getUpdateId(){
+    	if($this->getUpdates() == array()){
+    	    return "Error to getHttps";
+    	}
+        return $this->getUpdates()["result"][count($this->getUpdates()["result"]) - 1]["update_id"];
+    }
+
+    public function getChatUsername(){
+    	if($this->getUpdates() == array()){
+    	    return "Error to getHttps";
+    	}
+        return $this->getUpdates()["result"][count($this->getUpdates()["result"]) - 1]["message"]["chat"]["username"];
+    }
+  
+    public function getChatFirstName(){
+    	if($this->getUpdates() == array()){
+    	    return "Error to getHttps";
+    	}
+        return $this->getUpdates()["result"][count($this->getUpdates()["result"]) - 1]["message"]["chat"]["first_name"];
+    }
+
+    public function getChatLastName(){
+    	if($this->getUpdates() == array()){
+    	    return "Error to getHttps";
+    	}
+        return $this->getUpdates()["result"][count($this->getUpdates()["result"]) - 1]["message"]["chat"]["last_name"];
+    }
+
+    public function getChatType(){
+    	if($this->getUpdates() == array()){
+    	    return "Error to getHttps";
+    	}
+        return $this->getUpdates()["result"][count($this->getUpdates()["result"]) - 1]["message"]["chat"]["type"];
+    }
+
     public function getChatId(){
     	if($this->getUpdates() == array()){
     	    return "Error to getHttps";
     	}
         return $this->getUpdates()["result"][count($this->getUpdates()["result"]) - 1]["message"]["chat"]["id"];
+    }
+
+    public function getMessageDate(){
+    	if($this->getUpdates() == array()){
+    	    return "Error to getHttps";
+    	}
+        return $this->getUpdates()["result"][count($this->getUpdates()["result"]) - 1]["message"]["date"];
     }
     
     public function getMessageText(){
