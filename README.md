@@ -18,6 +18,15 @@ public function onEnable(): void{
 }
 ```
 
+# API
+```php
+sendMessage(string, string, string, array);
+getMe();
+getUpdates();
+getChatId();
+getMessageText();
+```
+
 # Example getMessageText
 ```php
 private $bot;
