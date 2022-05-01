@@ -9,9 +9,9 @@ use io\enn3\telegrambot\TelegramBot;
 ```
 
 # TelegramBot
-| variable | type |
-|:------:|:------:|
-| BOT_TOKEN | string |
+| variable | type | call |
+|:------:|:------:|:------:|
+| bot_token | string | [@BotFather.](https://t.me/BotFather) |
 
 ```php
 private $bot;
