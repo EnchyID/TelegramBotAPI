@@ -20,6 +20,16 @@ use io\enn3\telegrambot\TelegramBot;
 | parse_mode | string | markdown/HTML |
 | reply_markup | array | [Keyboard](https://github.com/FrogasQ/TelegramBotAPI#keyboard) |
 
+```php
+private $bot;
+
+public function onEnable(): void{
+    $this->getServer()->getPluginManager()->registerEvents($this, $this);
+    $this->bot = new TelegramBot("YOUR_BOT_TOKEN");
+    $this->bot->sendMessage($this->bot->getChatId(), "Hello there!");
+}
+```
+
 # Keyboard
 | variable | type | call |
 |:------:|:------:|:------:|
