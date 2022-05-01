@@ -37,3 +37,18 @@ public function onEnable(): void{
     $this->bot->sendMessage($this->bot->getChatId(), "Hello there!");
 }
 ```
+
+# Example sendMessage with Markup
+```php
+private $bot;
+
+public function onEnable(): void{
+    $this->getServer()->getPluginManager()->registerEvents($this, $this);
+    $this->bot = new TelegramBot("YOU_BOT_TOKEN");
+    $this->bot->sendMessage($this->bot->getChatId(), "Hello there!", "markdown", {
+        "inline_keyboard" => [
+            [["text" => "Test", "callback_data" => "Test"]]
+        ]
+    });
+}
+```
