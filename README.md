@@ -1,7 +1,7 @@
 # TelegramBotAPI
 TelegramBotAPI for PocketMine-MP plugins
 
-Get your bot api key [@BotFather.](https://t.me/BotFather)
+Get your bot Token [@BotFather.](https://t.me/BotFather)
 
 # Import Class
 ```php
