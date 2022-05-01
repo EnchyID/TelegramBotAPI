@@ -90,17 +90,17 @@ class TelegramBot {
         return $this->getUpdates()["result"][count($this->getUpdates()["result"]) - 1]["message"]["message_id"];
     }
     
-    public function sendMessage(string $chatId, string $text){ 
+    public function sendMessage(string $chatId, string $text, ?string $parse_mode, ?array $markup){ 
+        $data = array(
+            "chat_id" => $chatId,
+            "text" => $text,
+            "parse_mode" => $parse_mode,
+            "reply_markup" => $markup
+        );
         $this->method = "/sendMessage";
         $this->type = "POST";
-        $this->params = array(
-            "chat_id" => $chatId,
-            "text" => $text
-        );
-        $result = $this->request($this->url . "/sendMessage", "POST", array(
-            "chat_id" => $chatId,
-            "text" => $text
-        ));
+        $this->params = $data;
+        $result = $this->request($this->url . "/sendMessage", "POST", $data);
         $data = json_decode($result, true);
         if($data) print_r($data);
         else echo $result;
