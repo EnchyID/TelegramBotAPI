@@ -9,8 +9,9 @@ use io\enn3\telegrambot\TelegramBot;
 ```
 
 # TelegramBot
-| string | TokenBot |
+| variable | type |
 |:------:|:------:|
+| BOT_TOKEN | string |
 # sendMessage
 | variable | type | call |
 |:------:|:------:|:------:|
