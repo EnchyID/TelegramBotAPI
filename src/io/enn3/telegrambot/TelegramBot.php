@@ -95,7 +95,7 @@ class TelegramBot {
             "chat_id" => $chatId,
             "text" => $text,
             "parse_mode" => $parse_mode,
-            "reply_markup" => $markup
+            "reply_markup" => json_encode($markup)
         );
         $this->method = "/sendMessage";
         $this->type = "POST";
